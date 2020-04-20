@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
-
+.idea
+target
+.gitignore.swp
+*.iml
 # Log file
 *.log
 
