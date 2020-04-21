@@ -3,13 +3,16 @@ package com.myapp.battleofcards;
 import java.util.LinkedList;
 
 public class Human extends Player {
+    InputProvider inputProvider = new InputProvider();
 
         Human (){
             super();
         }
 
     @Override
-    public void chooseStat() {
-
+    public String chooseStat() {
+            System.out.println("Possibilities: Max speed, Acceleration, Horse power, Engine");
+            final String stats = inputProvider.getIntInput("How do you wanna play this round?");
+            return stats;
     }
 }
