@@ -21,7 +21,7 @@ public class Deck {
     Deck() {
         cards = new LinkedList<Card>();
         this.cards.addAll(loadXML());
-        // shuffle();
+        shuffle();
     }
 
     public LinkedList<Card> getCards() {
@@ -35,9 +35,11 @@ public class Deck {
 
     private void shuffle() {
         Random generator = new Random();
-        for (Card card : cards) {
-            this.cards.add(generator.nextInt(23), card);
-            this.cards.remove(card);
+        Card currentCard;
+        for (int i = 0; i<24; i++) {
+            currentCard = this.cards.get(i);
+            this.cards.remove(currentCard);
+            this.cards.add(generator.nextInt(23), currentCard);
         }
     }
 
