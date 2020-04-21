@@ -9,7 +9,7 @@ public class Computer extends Player {
     }
 
     @Override
-    public void chooseStat() {
+    public String chooseStat() {
 
     }
 }
