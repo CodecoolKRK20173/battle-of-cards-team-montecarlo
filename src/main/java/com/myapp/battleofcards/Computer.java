@@ -1,8 +1,11 @@
 package com.myapp.battleofcards;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Computer extends Player {
+
+    Random random = new Random();
 
     Computer (){
         super();
@@ -10,6 +13,8 @@ public class Computer extends Player {
 
     @Override
     public String chooseStat() {
-
+        String[] statsOptions = { "Max speed", "Acceleration", "Horse power", "Engine"};
+        final String stats = statsOptions[random.nextInt()];
+        return stats;
     }
 }
