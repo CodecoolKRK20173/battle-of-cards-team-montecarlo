@@ -1,6 +1,5 @@
 package com.myapp.battleofcards;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Computer extends Player {
