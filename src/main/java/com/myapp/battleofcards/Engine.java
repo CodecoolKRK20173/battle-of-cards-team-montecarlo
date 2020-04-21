@@ -3,10 +3,10 @@ package com.myapp.battleofcards;
 public enum Engine {
     electric("electric"),
     disel("disel"),
-    trueHorse("trueHorse"),
-    TurboS("TurboS"),
+    trueHorse("true horse"),
+    TurboS("Turbo S"),
     OHV("OHV"),
-    AGT1500C("AGT1500C"),
+    AGT1500C("AGT-1500C"),
     WBX6("WBX6"),
     V10("V10"),
     V12("V12"),
@@ -21,7 +21,7 @@ public enum Engine {
 
     private String engine;
 
-    private Engine(String engine) {
+    Engine(String engine) {
         this.engine = engine;
     }
 

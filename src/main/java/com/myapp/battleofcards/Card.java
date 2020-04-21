@@ -15,9 +15,6 @@ public class Card {
         this.engine = Engine.valueOf(engine);
     }
 
-    public Engine getEngine() {
-        return engine;
-    }
 
     public String getName() {
         return name;
@@ -51,4 +48,7 @@ public class Card {
         this.horsePower = horsePower;
     }
 
+    public Engine getEngine() {
+        return engine;
+    }
 }

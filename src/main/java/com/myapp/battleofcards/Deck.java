@@ -19,7 +19,7 @@ public class Deck {
     private LinkedList<Card> cards;
 
     Deck() {
-        cards = new LinkedList<Card>();
+        cards = new LinkedList<>();
         this.cards.addAll(loadXML());
         shuffle();
     }
@@ -44,10 +44,10 @@ public class Deck {
     }
 
     public LinkedList<Card> loadXML() {
-        LinkedList<Card> cards = new LinkedList<Card>();
+        LinkedList<Card> cards = new LinkedList<>();
 
         try {
-            File deckFile = new File("cards.xml");
+            File deckFile = new File("/home/tomek/battle-of-cards-team-montecarlo/src/main/java/com/myapp/battleofcards/cards.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(deckFile);
