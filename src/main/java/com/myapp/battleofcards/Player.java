@@ -16,5 +16,5 @@ public abstract class Player{
         return this.cards.removeLast();
     }
 
-    public abstract void chooseStat();
+    public abstract String chooseStat();
 }
