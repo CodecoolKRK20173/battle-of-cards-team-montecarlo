@@ -21,7 +21,7 @@ public class Deck {
     Deck() {
         cards = new LinkedList<Card>();
         this.cards.addAll(loadXML());
-        shuffle();
+        // shuffle();
     }
 
     public LinkedList<Card> getCards() {
@@ -55,11 +55,11 @@ public class Deck {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    String cardName = eElement.getAttribute("name");
-                    int maxSpeed = Integer.parseInt(eElement.getAttribute("maxSpeed"));
-                    float acceleration = Float.parseFloat(eElement.getAttribute("acceleration"));
-                    int horsePower = Integer.parseInt(eElement.getAttribute("horsePower"));
-                    // Engine engine = eElement.getAttribute("engine");
+                    String cardName = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    int maxSpeed = Integer.parseInt(eElement.getElementsByTagName("maxSpeed").item(0).getTextContent());
+                    float acceleration = Float.parseFloat(eElement.getElementsByTagName("acceleration").item(0).getTextContent());
+                    int horsePower = Integer.parseInt(eElement.getElementsByTagName("horsePower").item(0).getTextContent());
+                    // Engine engine = (Engine)eElement.getElementByTagName("engine").item(0).getTextContent();
                     this.cards.add(new Card(cardName, maxSpeed, acceleration, horsePower));
                 }
             }
