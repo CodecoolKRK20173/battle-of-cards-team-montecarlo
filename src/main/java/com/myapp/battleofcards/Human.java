@@ -1,4 +1,9 @@
 package com.myapp.battleofcards;
 
-public class Human {
+import java.util.LinkedList;
+
+public class Human extends Player {
+        Human (){
+            super();
+        }
 }
