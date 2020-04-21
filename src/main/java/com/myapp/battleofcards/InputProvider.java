@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class InputProvider {
     Scanner scanner = new Scanner(System.in);
 
-    public int getIntInput(String message) {
+    public String getIntInput(String message) {
         System.out.println(message);
-        return scanner.nextInt();
+        return scanner.next();
     }
 }
