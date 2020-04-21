@@ -35,9 +35,11 @@ public class Deck {
 
     private void shuffle() {
         Random generator = new Random();
-        for (Card card : cards) {
-            this.cards.add(generator.nextInt(23), card);
-            this.cards.remove(card);
+        Card currentCard;
+        for (int i = 0; i<24; i++) {
+            currentCard = this.cards.get(i);
+            this.cards.remove(currentCard);
+            this.cards.add(generator.nextInt(23), currentCard);
         }
     }
 
@@ -55,11 +57,11 @@ public class Deck {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    String cardName = eElement.getAttribute("name");
-                    int maxSpeed = Integer.parseInt(eElement.getAttribute("maxSpeed"));
-                    float acceleration = Float.parseFloat(eElement.getAttribute("acceleration"));
-                    int horsePower = Integer.parseInt(eElement.getAttribute("horsePower"));
-                    // Engine engine = eElement.getAttribute("engine");
+                    String cardName = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    int maxSpeed = Integer.parseInt(eElement.getElementsByTagName("maxSpeed").item(0).getTextContent());
+                    float acceleration = Float.parseFloat(eElement.getElementsByTagName("acceleration").item(0).getTextContent());
+                    int horsePower = Integer.parseInt(eElement.getElementsByTagName("horsePower").item(0).getTextContent());
+                    // Engine engine = (Engine)eElement.getElementByTagName("engine").item(0).getTextContent();
                     this.cards.add(new Card(cardName, maxSpeed, acceleration, horsePower));
                 }
             }
