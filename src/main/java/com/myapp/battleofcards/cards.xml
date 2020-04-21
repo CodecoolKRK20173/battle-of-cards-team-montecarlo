@@ -170,8 +170,8 @@
     </card>
     <card>
         <name>Mitsubishi Endeavor</name>
-        <maxSpeed>3.8</maxSpeed>
-        <acceleration>165</acceleration>
+        <maxSpeed>165</maxSpeed>
+        <acceleration>3.8</acceleration>
         <horsePower>225</horsePower>
         <engine>V6</engine>
     </card>
