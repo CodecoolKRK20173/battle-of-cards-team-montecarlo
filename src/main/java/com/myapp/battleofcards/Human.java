@@ -7,4 +7,9 @@ public class Human extends Player {
         Human (){
             super();
         }
+
+    @Override
+    public void chooseStat() {
+
+    }
 }
