@@ -47,7 +47,7 @@ public class Deck {
         LinkedList<Card> cards = new LinkedList<Card>();
 
         try {
-            File deckFile = new File("cards.xml");
+            File deckFile = new File("/home/tomek/battle-of-cards-team-montecarlo/src/main/java/com/myapp/battleofcards/cards.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(deckFile);

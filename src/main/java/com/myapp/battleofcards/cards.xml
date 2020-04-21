@@ -19,14 +19,14 @@
         <maxSpeed>120</maxSpeed>
         <acceleration>60</acceleration>
         <horsePower>2</horsePower>
-        <engine>true horse</engine>
+        <engine>trueHorse</engine>
     </card>
     <card>
         <name>Porsche 911</name>
         <maxSpeed>340</maxSpeed>
         <acceleration>8.7</acceleration>
         <horsePower>500</horsePower>
-        <engine>Turbo s</engine>
+        <engine>TurboS</engine>
     </card>
     <card>
         <name>Maluch</name>
@@ -40,7 +40,7 @@
         <maxSpeed>67</maxSpeed>
         <acceleration>1000</acceleration>
         <horsePower>1500</horsePower>
-        <engine>Avco Lycoming AGT-1500C </engine>
+        <engine>AGT1500C</engine>
     </card>
     <card>
         <name>Volkswagen T3</name>
@@ -131,7 +131,7 @@
         <maxSpeed>250</maxSpeed>
         <acceleration>6.5</acceleration>
         <horsePower>280</horsePower>
-        <engine></engine>
+        <engine>TSI</engine>
     </card>
     <card>
         <name>Mazda CX 9</name>

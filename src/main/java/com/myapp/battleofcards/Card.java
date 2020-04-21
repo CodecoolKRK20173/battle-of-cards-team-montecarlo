@@ -6,7 +6,7 @@ public class Card {
     private float acceleration;
     private int horsePower;
     private Engine engine;
-    
+
     public Card(String name, int maxSpeed, float acceleration, int horsePower, String engine) {
         this.name = name;
         this.maxSpeed = maxSpeed;
@@ -47,4 +47,7 @@ public class Card {
         this.horsePower = horsePower;
     }
 
+    public Engine getEngine() {
+        return engine;
+    }
 }
