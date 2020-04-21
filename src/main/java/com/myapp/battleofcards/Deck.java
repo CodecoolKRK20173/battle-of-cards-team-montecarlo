@@ -61,8 +61,8 @@ public class Deck {
                     int maxSpeed = Integer.parseInt(eElement.getElementsByTagName("maxSpeed").item(0).getTextContent());
                     float acceleration = Float.parseFloat(eElement.getElementsByTagName("acceleration").item(0).getTextContent());
                     int horsePower = Integer.parseInt(eElement.getElementsByTagName("horsePower").item(0).getTextContent());
-                    // Engine engine = (Engine)eElement.getElementByTagName("engine").item(0).getTextContent();
-                    this.cards.add(new Card(cardName, maxSpeed, acceleration, horsePower));
+                    String engine = eElement.getElementsByTagName("engine").item(0).getTextContent();
+                    this.cards.add(new Card(cardName, maxSpeed, acceleration, horsePower, engine));
                 }
             }
         } catch (ParserConfigurationException e) {
