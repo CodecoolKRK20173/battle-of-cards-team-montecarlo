@@ -32,7 +32,6 @@ public class Deck {
 
     public LinkedList<Card> loadXML(){
         LinkedList<Card> cards = new LinkedList<Card>();
-        // read cards from xml document and add them to list
         return cards;
     }
 

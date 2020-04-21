@@ -27,6 +27,14 @@
         <version.plugin.maven.resources>3.1.0</version.plugin.maven.resources>
     </properties>
 
+    <dependencies>
+    <dependency>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-xml</artifactId>
+        <version>2.9.7</version>
+    </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
