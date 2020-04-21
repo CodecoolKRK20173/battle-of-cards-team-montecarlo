@@ -2,7 +2,7 @@ package com.myapp.battleofcards;
 
 import java.util.LinkedList;
 
-public class Player{
+public abstract class Player{
     private LinkedList<Card> cards;
     Player(){
         cards = new LinkedList<Card>();}
@@ -12,4 +12,5 @@ public class Player{
     public Card drawNext(){
         return this.cards.removeLast();
     }
+    public abstract void chooseStat();
 }
