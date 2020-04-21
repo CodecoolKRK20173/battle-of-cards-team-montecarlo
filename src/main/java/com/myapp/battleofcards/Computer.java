@@ -7,4 +7,9 @@ public class Computer extends Player {
     Computer (){
         super();
     }
+
+    @Override
+    public void chooseStat() {
+
+    }
 }
