@@ -5,11 +5,18 @@ import java.util.Iterator;
 
 public class Game{
     private ArrayList<Player> players;
+    InputProvider inputProvider = new InputProvider();
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
-        for (int i = 0; i<numberOfPlayers; i++) {
-            this.players.add(new Human());
+        for (int i = 0; i<numberOfPlayers - 1; i++) {
+            this.players.add(new Computer());
+        }
+        this.players.add(new Human());
+        for (Player player : players) {
+            if (player instanceof Human) {
+                chooseStat();
+            }
         }
         Deck deck = new Deck();
         Card currentCard;
@@ -37,5 +44,11 @@ public class Game{
                 }
             }
         }
+    }
+
+    public String chooseStat() {
+        System.out.println("Possibilities: \n 1.Max speed \n 2.Acceleration \n 3.Horse power \n  4.Engine");
+        final String stats = inputProvider.getIntInput("How do you wanna play this round?");
+        return stats;
     }
 }
