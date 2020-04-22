@@ -29,7 +29,6 @@ public class Deck {
         return cards;
     }
 
-
     public Card drawNext() {
         return this.cards.removeLast();
     }
