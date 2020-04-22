@@ -17,6 +17,20 @@ public class Game{
             if (player instanceof Human) {
                 chooseStat();
             }
+            switch (chooseStat()) {
+                case (1) {
+                    break;
+                }
+                case (2){
+                    break;
+                }
+                case (3) {
+                    break;
+                }
+                case (4) {
+                    break;
+                }
+            }
         }
         Deck deck = new Deck();
         Card currentCard;
