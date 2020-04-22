@@ -7,8 +7,9 @@ public class Game{
     private ArrayList<Player> players;
     InputProvider inputProvider = new InputProvider();
 
-    Game(int numberOfPlayers){
+    String Game(int numberOfPlayers){
         players = new ArrayList<Player>();
+
         for (int i = 0; i<numberOfPlayers - 1; i++) {
             this.players.add(new Computer());
         }
@@ -31,7 +32,6 @@ public class Game{
                     break;
                 }
             }
-        }
         Deck deck = new Deck();
         Card currentCard;
         Iterator deckIterator = deck.getCards().iterator();
@@ -60,9 +60,19 @@ public class Game{
         }
     }
 
-    public String chooseStat() {
-        System.out.println("Possibilities: \n 1.Max speed \n 2.Acceleration \n 3.Horse power \n  4.Engine");
-        final String stats = inputProvider.getIntInput("How do you wanna play this round?");
-        return stats;
-    }
+        public String chooseStat() {
+            String input = "";
+            String[] statsOptions = { "Max speed", "Acceleration", "Horse power", "Engine"};
+            System.out.println("Choose one of following stats to compare with other players: \n" +
+                    "0: Max speed \n" +
+                    "1: Acceleration \n" +
+                    "2: Horse power \n " +
+                    "3: Engine");
+            while (input.length() != 1 && !"0123".contains(input)) {
+                input = inputProvider.getIntInput("How do you wanna play this round?");
+            }
+            final String stats = statsOptions[Integer.parseInt(input)];
+
+            return stats;
+        }
 }

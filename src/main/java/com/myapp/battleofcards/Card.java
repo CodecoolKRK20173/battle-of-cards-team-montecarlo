@@ -1,54 +1,93 @@
 package com.myapp.battleofcards;
 
+
 public class Card {
     private String name;
-    private int maxSpeed;
-    private float acceleration;
-    private int horsePower;
-    private Engine engine;
+
+    EngineC engine;
+    HorsePower horsePower;
+    Acceleration acceleration;
+    MaxSpeed maxSpeed;
 
     public Card(String name, int maxSpeed, float acceleration, int horsePower, String engine) {
         this.name = name;
-        this.maxSpeed = maxSpeed;
-        this.acceleration = acceleration;
-        this.horsePower = horsePower;
-        this.engine = Engine.valueOf(engine);
+        this.maxSpeed = new MaxSpeed(maxSpeed);
+        this.acceleration = new Acceleration(acceleration);
+        this.horsePower = new HorsePower(horsePower);
+        this.engine = new EngineC(Engine.valueOf(engine));
     }
 
 
-    public String getName() {
+    private class MaxSpeed implements Comparable<MaxSpeed>{
+        public MaxSpeed(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        int value;
+
+        @Override
+        public int compareTo(MaxSpeed maxSpeed) {
+            return Integer.compare(value, maxSpeed.getValue());
+        }
+    }
+
+    private class Acceleration implements Comparable<Acceleration>{
+
+        public Acceleration(float value) {
+            this.value = value;
+        }
+
+        public float getValue() {
+            return value;
+        }
+
+        float value;
+
+        @Override
+        public int compareTo(Acceleration acceleration) {
+            return Float.compare(acceleration.getValue(), value);
+        }
+    }
+
+    private class HorsePower implements Comparable<HorsePower>{
+        public HorsePower(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        int value;
+        @Override
+        public int compareTo(HorsePower horsePower) {
+            return Integer.compare(value, horsePower.getValue());
+        }
+    }
+
+    private class EngineC implements Comparable<EngineC>{
+        public Engine getValue() {
+            return value;
+        }
+
+        public EngineC(Engine value) {
+            this.value = value;
+        }
+
+        Engine value;
+        @Override
+        public int compareTo(EngineC engineC) {
+            Enum self = value;
+            Enum other = engineC.getValue();
+            return self.ordinal() - other.ordinal();
+        }
+    }
+
+    public String getName()  {
         return name;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public float getAcceleration() {
-        return acceleration;
-    }
-
-    public int getHorsePower() {
-        return horsePower;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    public void setAcceleration(float acceleration) {
-        this.acceleration = acceleration;
-    }
-
-    public void setHorsePower(int horsePower) {
-        this.horsePower = horsePower;
-    }
-
-    public Engine getEngine() {
-        return engine;
     }
 }
