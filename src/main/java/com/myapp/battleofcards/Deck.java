@@ -48,7 +48,7 @@ public class Deck {
 
         try {
             String path = new File(Deck.class.getProtectionDomain().getCodeSource().getLocation()
-                    .toURI()).getPath().toString().replace("target/CardGame-1.0-SNAPSHOT.jar", "cards.xml");
+                    .toURI()).getPath().toString().replace("target/CardGame-1.0-SNAPSHOT-jar-with-dependencies.jar", "cards.xml");
             File deckFile = new File(path);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

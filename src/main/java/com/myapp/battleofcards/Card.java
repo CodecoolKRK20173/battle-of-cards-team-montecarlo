@@ -1,7 +1,7 @@
 package com.myapp.battleofcards;
 
 
-
+import com.jakewharton.fliptables.FlipTable;
 
 public class Card {
     private String name;
@@ -29,7 +29,7 @@ public class Card {
                     String.valueOf(this.horsePower.getValue()),
                                     this.engine.getValue().name()}};
 
-        return com.jakewharton.fliptables.FlipTable.of(headers, data);
+        return FlipTable.of(headers, data);
     }
 
 
