@@ -14,7 +14,6 @@ public enum Engine {
     W12("W12"),
     R4("R4"),
     V6("V6"),
-    B6("B6"),
     TSI("TSI"),
     TCe("TCe"),
     Turbo("Turbo");

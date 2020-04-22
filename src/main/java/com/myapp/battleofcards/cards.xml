@@ -24,7 +24,7 @@
     <card>
         <name>Porsche 911</name>
         <maxSpeed>340</maxSpeed>
-        <acceleration>8.7</acceleration>
+        <acceleration>4</acceleration>
         <horsePower>500</horsePower>
         <engine>TurboS</engine>
     </card>
@@ -118,13 +118,6 @@
         <acceleration>2.7</acceleration>
         <horsePower>570</horsePower>
         <engine>V6</engine>
-    </card>
-    <card>
-        <name>Porsche 911</name>
-        <maxSpeed>307</maxSpeed>
-        <acceleration>4</acceleration>
-        <horsePower>450</horsePower>
-        <engine>B6</engine>
     </card>
     <card>
         <name>Volkswagen Scirocco</name>
