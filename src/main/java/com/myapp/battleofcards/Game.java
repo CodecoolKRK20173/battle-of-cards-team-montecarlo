@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class Game{
     private ArrayList<Player> players;
+    int userChoice;
     InputProvider inputProvider = new InputProvider();
 
     String Game(int numberOfPlayers){
@@ -16,9 +17,10 @@ public class Game{
         this.players.add(new Human());
         for (Player player : players) {
             if (player instanceof Human) {
-                chooseStat();
+                int userChoice = chooseStat();
             }
-            switch (chooseStat()) {
+
+            switch (userChoice) {
                 case (1) {
                     break;
                 }
