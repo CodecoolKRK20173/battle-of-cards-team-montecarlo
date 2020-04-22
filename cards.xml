@@ -1,0 +1,172 @@
+<?xml version = "1.0"?>
+<deck>
+    <card>
+        <name>Tesla 75D</name>
+        <maxSpeed>230</maxSpeed>
+        <acceleration>4.4</acceleration>
+        <horsePower>329</horsePower>
+        <engine>electric</engine>
+    </card>
+    <card>
+        <name>Uaz Hunter</name>
+        <maxSpeed>130</maxSpeed>
+        <acceleration>19</acceleration>
+        <horsePower>128</horsePower>
+        <engine>disel</engine>
+    </card>
+    <card>
+        <name>Bryczka</name>
+        <maxSpeed>120</maxSpeed>
+        <acceleration>60</acceleration>
+        <horsePower>2</horsePower>
+        <engine>trueHorse</engine>
+    </card>
+    <card>
+        <name>Porsche 911</name>
+        <maxSpeed>340</maxSpeed>
+        <acceleration>4</acceleration>
+        <horsePower>500</horsePower>
+        <engine>TurboS</engine>
+    </card>
+    <card>
+        <name>Maluch</name>
+        <maxSpeed>120</maxSpeed>
+        <acceleration>41.1</acceleration>
+        <horsePower>30</horsePower>
+        <engine>OHV</engine>
+    </card>
+    <card>
+        <name>M1 Abrams</name>
+        <maxSpeed>67</maxSpeed>
+        <acceleration>1000</acceleration>
+        <horsePower>1500</horsePower>
+        <engine>AGT1500C</engine>
+    </card>
+    <card>
+        <name>Volkswagen T3</name>
+        <maxSpeed>135</maxSpeed>
+        <acceleration>12</acceleration>
+        <horsePower>180</horsePower>
+        <engine>WBX6</engine>
+    </card>
+    <card>
+        <name>Lamborghini Gallardo</name>
+        <maxSpeed>325</maxSpeed>
+        <acceleration>3.4</acceleration>
+        <horsePower>560</horsePower>
+        <engine>V10</engine>
+    </card>
+    <card>
+        <name>Aston Martin DB11</name>
+        <maxSpeed>322</maxSpeed>
+        <acceleration>3.9</acceleration>
+        <horsePower>608</horsePower>
+        <engine>V12</engine>
+    </card>
+    <card>
+        <name>Audi A8</name>
+        <maxSpeed>250</maxSpeed>
+        <acceleration>6.9</acceleration>
+        <horsePower>310</horsePower>
+        <engine>V8</engine>
+    </card>
+    <card>
+        <name>Bentley Continental GT III</name>
+        <maxSpeed>329</maxSpeed>
+        <acceleration>3.6</acceleration>
+        <horsePower>560</horsePower>
+        <engine>W12</engine>
+    </card>
+    <card>
+        <name>Dodge Viper</name>
+        <maxSpeed>325</maxSpeed>
+        <acceleration>3.9</acceleration>
+        <horsePower>600</horsePower>
+        <engine>V10</engine>
+    </card>
+    <card>
+        <name>Ferrari California</name>
+        <maxSpeed>310</maxSpeed>
+        <acceleration>3.9</acceleration>
+        <horsePower>460</horsePower>
+        <engine>V8</engine>
+    </card>
+    <card>
+        <name>Jaguar XF</name>
+        <maxSpeed>250</maxSpeed>
+        <acceleration>4.5</acceleration>
+        <horsePower>510</horsePower>
+        <engine>V8</engine>
+    </card>
+    <card>
+        <name>Maserati Granturismo</name>
+        <maxSpeed>300</maxSpeed>
+        <acceleration>4.7</acceleration>
+        <horsePower>460</horsePower>
+        <engine>V8</engine>
+    </card>
+    <card>
+        <name>Mitsubishi Lancer Evo VIII</name>
+        <maxSpeed>282</maxSpeed>
+        <acceleration>3.8</acceleration>
+        <horsePower>410</horsePower>
+        <engine>R4</engine>
+    </card>
+    <card>
+        <name>Nissan GTR</name>
+        <maxSpeed>315</maxSpeed>
+        <acceleration>2.7</acceleration>
+        <horsePower>570</horsePower>
+        <engine>V6</engine>
+    </card>
+    <card>
+        <name>Volkswagen Scirocco</name>
+        <maxSpeed>250</maxSpeed>
+        <acceleration>6.5</acceleration>
+        <horsePower>280</horsePower>
+        <engine>TSI</engine>
+    </card>
+    <card>
+        <name>Mazda CX 9</name>
+        <maxSpeed>192</maxSpeed>
+        <acceleration>10.1</acceleration>
+        <horsePower>263</horsePower>
+        <engine>V6</engine>
+    </card>
+    <card>
+        <name>Renault ZOE</name>
+        <maxSpeed>185</maxSpeed>
+        <acceleration>7.6</acceleration>
+        <horsePower>190</horsePower>
+        <engine>TCe</engine>
+    </card>
+    <card>
+        <name>Dacia Duster</name>
+        <maxSpeed>177</maxSpeed>
+        <acceleration>10.4</acceleration>
+        <horsePower>150</horsePower>
+        <engine>TCe</engine>
+    </card>
+    <card>
+        <name>Opel Insignia</name>
+        <maxSpeed>205</maxSpeed>
+        <acceleration>10.9</acceleration>
+        <horsePower>165</horsePower>
+        <engine>Turbo</engine>
+    </card>
+    <card>
+        <name>Hyundai Genesis</name>
+        <maxSpeed>240</maxSpeed>
+        <acceleration>3.8</acceleration>
+        <horsePower>347</horsePower>
+        <engine>V6</engine>
+    </card>
+    <card>
+        <name>Mitsubishi Endeavor</name>
+        <maxSpeed>165</maxSpeed>
+        <acceleration>3.8</acceleration>
+        <horsePower>225</horsePower>
+        <engine>V6</engine>
+    </card>
+</deck>
+

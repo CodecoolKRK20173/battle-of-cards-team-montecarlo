@@ -9,7 +9,7 @@ public class Game{
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
         for (int i = 0; i<numberOfPlayers; i++) {
-            this.players.add(new Player());
+            this.players.add(new Human());
         }
         Deck deck = new Deck();
         Card currentCard;
