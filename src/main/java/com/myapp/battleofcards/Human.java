@@ -9,7 +9,7 @@ public class Human extends Player {
 
     @Override
     public String chooseStat() {
-            System.out.println("Possibilities: Max speed, Acceleration, Horse power, Engine");
+            System.out.println("Possibilities: \n 1.Max speed \n 2.Acceleration \n 3.Horse power \n  4.Engine");
             final String stats = inputProvider.getIntInput("How do you wanna play this round?");
             return stats;
     }
