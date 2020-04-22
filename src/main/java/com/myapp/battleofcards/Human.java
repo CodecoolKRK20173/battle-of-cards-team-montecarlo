@@ -9,8 +9,18 @@ public class Human extends Player {
 
     @Override
     public String chooseStat() {
-            System.out.println("Possibilities: Max speed, Acceleration, Horse power, Engine");
-            final String stats = inputProvider.getIntInput("How do you wanna play this round?");
-            return stats;
+            String input = "";
+            String[] statsOptions = { "Max speed", "Acceleration", "Horse power", "Engine"};
+            System.out.println("Choose one of following stats to compare with other players: \n" +
+                                "0: Max speed \n" +
+                                "1: Acceleration \n" +
+                                "2: Horse power \n " +
+                                "3: Engine");
+            while (input.length() != 1 && !"0123".contains(input)) {
+                input = inputProvider.getIntInput("How do you wanna play this round?");
+            }
+            final String stats = statsOptions[Integer.parseInt(input)];
+
+        return stats;
     }
 }
