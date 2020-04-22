@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -47,7 +48,9 @@ public class Deck {
         LinkedList<Card> cards = new LinkedList<>();
 
         try {
-            File deckFile = new File("cards.xml");
+            String path = new File(Deck.class.getProtectionDomain().getCodeSource().getLocation()
+                    .toURI()).getPath().toString().replace("CardGame-1.0-SNAPSHOT.jar", "cards.xml");
+            File deckFile = new File(path);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(deckFile);
@@ -71,7 +74,10 @@ public class Deck {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
+
         return cards;
     }
 }

@@ -26,7 +26,9 @@ public class Game{
 
     void showDecks(){
         for (Player player: players) {
+            System.out.println("");
             System.out.println("Player cards:");
+            System.out.println("");
             while (true) {
                 try {
                     System.out.println(player.drawNext().getName());
