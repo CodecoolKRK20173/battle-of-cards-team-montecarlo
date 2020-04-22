@@ -8,8 +8,9 @@ public class Game{
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
-        for (int i = 0; i<numberOfPlayers; i++) {
-            this.players.add(new Human());
+        this.players.add(new Human());
+        for (int i = 1; i<numberOfPlayers; i++) {
+            this.players.add(new Computer());
         }
         Deck deck = new Deck();
         Card currentCard;
