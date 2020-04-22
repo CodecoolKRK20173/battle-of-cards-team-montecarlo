@@ -13,7 +13,7 @@ public class Computer extends Player {
     @Override
     public String chooseStat() {
         String[] statsOptions = { "Max speed", "Acceleration", "Horse power", "Engine"};
-        final String stats = statsOptions[random.nextInt()];
+        final String stats = statsOptions[random.nextInt(4)];
         return stats;
     }
 }

@@ -17,6 +17,6 @@ public class Main {
         }
         Game game = new Game(numberOfPlayers);
         System.out.println("Deck generated, shuffled, players initialized, cards distributed equally.");
-        game.showDecks();
+        game.gamePlay();
     }
 }
