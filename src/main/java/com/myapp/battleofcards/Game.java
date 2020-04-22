@@ -1,3 +1,4 @@
+
 package com.myapp.battleofcards;
 
 import java.util.ArrayList;
@@ -5,35 +6,31 @@ import java.util.Iterator;
 
 public class Game{
     private ArrayList<Player> players;
-    int userChoice;
-    InputProvider inputProvider = new InputProvider();
+    Human emptyHuman = new Human();
+    String userChoice;
 
-    String Game(int numberOfPlayers){
+    Game(int numberOfPlayers){
         players = new ArrayList<Player>();
-
-        for (int i = 0; i<numberOfPlayers - 1; i++) {
+        this.players.add(new Human());
+        for (int i = 1; i<numberOfPlayers; i++) {
             this.players.add(new Computer());
         }
         this.players.add(new Human());
         for (Player player : players) {
             if (player instanceof Human) {
-                int userChoice = chooseStat();
+                String userChoice = emptyHuman.chooseStat();
             }
-
-            switch (userChoice) {
-                case (1) {
-                    break;
-                }
-                case (2){
-                    break;
-                }
-                case (3) {
-                    break;
-                }
-                case (4) {
-                    break;
-                }
-            }
+        }
+        switch (userChoice) {
+            case "1":
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+        }
         Deck deck = new Deck();
         Card currentCard;
         Iterator deckIterator = deck.getCards().iterator();
@@ -61,20 +58,4 @@ public class Game{
             }
         }
     }
-
-        public String chooseStat() {
-            String input = "";
-            String[] statsOptions = { "Max speed", "Acceleration", "Horse power", "Engine"};
-            System.out.println("Choose one of following stats to compare with other players: \n" +
-                    "0: Max speed \n" +
-                    "1: Acceleration \n" +
-                    "2: Horse power \n " +
-                    "3: Engine");
-            while (input.length() != 1 && !"0123".contains(input)) {
-                input = inputProvider.getIntInput("How do you wanna play this round?");
-            }
-            final String stats = statsOptions[Integer.parseInt(input)];
-
-            return stats;
-        }
 }
