@@ -1,6 +1,8 @@
 package com.myapp.battleofcards;
 
 
+import com.jakewharton.fliptables.FlipTable;
+
 public class Card {
     private String name;
 
@@ -15,6 +17,19 @@ public class Card {
         this.acceleration = new Acceleration(acceleration);
         this.horsePower = new HorsePower(horsePower);
         this.engine = new EngineC(Engine.valueOf(engine));
+    }
+
+
+
+    public String returnTable(){
+        String[] headers = {"Name", "MaxSpeed", "Acceleration", "HorsePower", "Engine"};
+        String[][] data = {{this.getName(),
+                    String.valueOf(this.maxSpeed.getValue()),
+                    String.valueOf(this.acceleration.getValue()),
+                    String.valueOf(this.horsePower.getValue()),
+                                    this.engine.getValue().name()}};
+
+        return FlipTable.of(headers, data);
     }
 
 

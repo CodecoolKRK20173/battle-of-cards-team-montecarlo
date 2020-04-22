@@ -11,26 +11,23 @@ public class Game{
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
+        int activePlayer = 0;
         this.players.add(new Human());
         for (int i = 1; i<numberOfPlayers; i++) {
             this.players.add(new Computer());
         }
-        this.players.add(new Human());
-        for (Player player : players) {
-            if (player instanceof Human) {
-                String userChoice = emptyHuman.chooseStat();
-            }
-        }
-        switch (userChoice) {
-            case "1":
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-            case "4":
-                break;
-        }
+        distributeCardsToPlayers(this.players);
+
+        //while(players.get(activePlayer).getDeckLen() != 0)
+          //  activePlayer = processTurn(players.get(activePlayer));
+    }
+
+    int processTurn(Player player){
+        int whoWon = 0;
+        return whoWon;
+    }
+
+    void distributeCardsToPlayers(ArrayList<Player> players){
         Deck deck = new Deck();
         Card currentCard;
         Iterator deckIterator = deck.getCards().iterator();
@@ -43,7 +40,6 @@ public class Game{
             ((Player)playerIterator.next()).putAtBottom(currentCard);
         }
     }
-
     void showDecks(){
         for (Player player: players) {
             System.out.println("");
@@ -51,7 +47,7 @@ public class Game{
             System.out.println("");
             while (true) {
                 try {
-                    System.out.println(player.drawNext().getName());
+                    System.out.println(player.drawNext().returnTable());
                 } catch (Exception e) {
                     break;
                 }

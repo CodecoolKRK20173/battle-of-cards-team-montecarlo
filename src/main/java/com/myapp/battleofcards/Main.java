@@ -10,13 +10,13 @@ public class Main {
         System.out.println("Number of players:" + numberOfPlayers);
         try {
             String path = new File(Deck.class.getProtectionDomain().getCodeSource().getLocation()
-                    .toURI()).getPath().toString().replace("CardGame-1.0-SNAPSHOT.jar", "cards.xml");
+                    .toURI()).getPath().toString().replace("target/CardGame-1.0-SNAPSHOT-jar-with-dependencies.jar", "cards.xml");
             System.out.println("Game deck path: " + path);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         Game game = new Game(numberOfPlayers);
-        System.out.println("Deck generated, shuffled, players initialized, cards distributed equaly.");
+        System.out.println("Deck generated, shuffled, players initialized, cards distributed equally.");
         game.showDecks();
     }
 }

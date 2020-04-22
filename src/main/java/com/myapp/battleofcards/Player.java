@@ -12,6 +12,10 @@ public abstract class Player{
         this.cards.add(0, card);
     }
 
+    public int getDeckLen(){
+        return this.cards.size();
+    }
+
     public Card drawNext(){
         return this.cards.removeLast();
     }
