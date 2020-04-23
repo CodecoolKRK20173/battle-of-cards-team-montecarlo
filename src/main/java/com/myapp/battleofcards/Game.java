@@ -21,9 +21,11 @@ public class Game{
 
     void gamePlay() throws InterruptedException {
         int activePlayer = 0;
-        while(this.players.get(activePlayer).getDeckLen() != 24)
-        activePlayer = processTurn(activePlayer);
-
+        while(this.players.get(activePlayer).getDeckLen() != 24) {
+            activePlayer = processTurn(activePlayer);
+            if (this.players.get(activePlayer).getDeckLen() == 24)
+                System.out.println(players.get(activePlayer).getName() + " WINS!");
+        }
     }
 
     int processTurn(int activePlayer) throws InterruptedException {
