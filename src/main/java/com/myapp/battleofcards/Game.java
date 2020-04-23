@@ -39,6 +39,7 @@ public class Game{
         System.out.println(cards.get(activePlayer).getValue0().returnTable());
         String stat = players.get(activePlayer).chooseStat();
 
+
         // TODO: wystwietl karty innych graczy
 
         for (int i = 0; i< players.size(); i++){

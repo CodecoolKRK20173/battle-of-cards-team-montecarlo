@@ -13,7 +13,8 @@ public class Main {
                     .toURI()).getPath().toString().replace("target/CardGame-1.0-SNAPSHOT-jar-with-dependencies.jar", "cards.xml");
             System.out.println("Game deck path: " + path);
         } catch (URISyntaxException e) {
-            e.printStackTrace();
+            System.out.println("ERROR: no cards.xml in project directory");
+            System.exit(0);
         }
         Game game = new Game(numberOfPlayers);
         System.out.println("Deck generated, shuffled, players initialized, cards distributed equally.");
