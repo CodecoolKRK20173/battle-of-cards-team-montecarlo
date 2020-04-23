@@ -2,10 +2,8 @@ package com.myapp.battleofcards;
 
 import org.javatuples.Pair;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Supplier;
 
 public class Game{
     private ArrayList<Player> players;
@@ -26,28 +24,60 @@ public class Game{
 
     }
 
+    void assemblyStatMap(ArrayList<Pair<Card, Player>> cards, Map statMap){
+        // TODO: interface composing hash map
+    }
 
     int processTurn(int activePlayer){
-        Map<Integer, Pair<Card, Player>> cards = new HashMap<>();
+        ArrayList<Pair<Card, Player>> cards = new ArrayList<>();
+
+        // TODO: interface composing hash map
+
+        Map<String, Supplier<Optional<Pair<Card, Player>>>> statMap = new HashMap<>();
+        statMap.put("Max speed", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getMaxSpeed())));
+        statMap.put("Acceleration", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getAcceleration())));
+        statMap.put("Horse power", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getHorsePower())));
+        statMap.put("Engine", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getEngine())));
+
+        // TODO: print sizes of player's decks method
+
         for (int i=0; i < players.size(); i++) {
             System.out.println("Player " + Integer.toString(i+1) + " deck size " + Integer.toString(players.get(i).getDeckLen()) + ".");
         }
+
+        // TODO: separate players drawing cards into method
+
         for (int i=0; i < players.size(); i++){
-            cards.put(cards.size(), new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
+            cards.add(new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
         }
+
+        // TODO: active player action method ??
+
         System.out.println("Active player has drawn: ");
         System.out.println(cards.get(activePlayer).getValue0().returnTable());
         String stat = players.get(activePlayer).chooseStat();
 
+        // TODO: other players reveal cards method
+
         for (int i=0; i< players.size(); i++){
-            if (i != activePlayer) System.out.println(cards.get(activePlayer).getValue0().returnTable());
+            if (i != activePlayer) System.out.println(cards.get(i).getValue0().returnTable());
         }
 
-        for (int i = 0; i< players.size(); i++){
+        // choosing strongest card
 
-           // TODO: porownaj wszystkie karty po statsie i znajdz najwieksza
+        Optional<Pair<Card, Player>> winner = statMap.get(stat).get();
+        try {
+            activePlayer = cards.indexOf(winner.get());
+            Player trueWinner = winner.get().getValue1();
+            for (Pair<Card, Player> pair: cards){trueWinner.putAtBottom(pair.getValue0());};
+        } catch (NoSuchElementException E){
+
         }
-        // TODO: gracz ktorego karta wygrala kladzie wszystkie na spod talii i staje sie active playerem
+
+        for (int i=0; i<players.size(); i++){
+            if (players.get(i).getDeckLen()==0) {players.remove(players.get(i));}
+        }
+
         return activePlayer;
     }
 

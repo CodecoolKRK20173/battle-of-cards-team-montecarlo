@@ -6,10 +6,26 @@ import com.jakewharton.fliptables.FlipTable;
 public class Card {
     private String name;
 
-    EngineC engine;
-    HorsePower horsePower;
-    Acceleration acceleration;
-    MaxSpeed maxSpeed;
+    private EngineC engine;
+    private HorsePower horsePower;
+    private Acceleration acceleration;
+    private MaxSpeed maxSpeed;
+
+    public EngineC getEngine() {
+        return engine;
+    }
+
+    public HorsePower getHorsePower() {
+        return horsePower;
+    }
+
+    public Acceleration getAcceleration() {
+        return acceleration;
+    }
+
+    public MaxSpeed getMaxSpeed() {
+        return maxSpeed;
+    }
 
     public Card(String name, int maxSpeed, float acceleration, int horsePower, String engine) {
         this.name = name;
@@ -18,8 +34,6 @@ public class Card {
         this.horsePower = new HorsePower(horsePower);
         this.engine = new EngineC(Engine.valueOf(engine));
     }
-
-
 
     public String returnTable(){
         String[] headers = {"Name", "MaxSpeed", "Acceleration", "HorsePower", "Engine"};
@@ -32,8 +46,7 @@ public class Card {
         return FlipTable.of(headers, data);
     }
 
-
-    private class MaxSpeed implements Comparable<MaxSpeed>{
+     public class MaxSpeed implements Comparable<MaxSpeed>{
         public MaxSpeed(int value) {
             this.value = value;
         }
@@ -50,7 +63,7 @@ public class Card {
         }
     }
 
-    private class Acceleration implements Comparable<Acceleration>{
+    public class Acceleration implements Comparable<Acceleration>{
 
         public Acceleration(float value) {
             this.value = value;
@@ -68,7 +81,7 @@ public class Card {
         }
     }
 
-    private class HorsePower implements Comparable<HorsePower>{
+    public class HorsePower implements Comparable<HorsePower>{
         public HorsePower(int value) {
             this.value = value;
         }
@@ -84,7 +97,7 @@ public class Card {
         }
     }
 
-    private class EngineC implements Comparable<EngineC>{
+    public class EngineC implements Comparable<EngineC>{
         public Engine getValue() {
             return value;
         }
