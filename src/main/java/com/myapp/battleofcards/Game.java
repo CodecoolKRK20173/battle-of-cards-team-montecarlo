@@ -3,6 +3,7 @@ package com.myapp.battleofcards;
 import org.javatuples.Pair;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class Game{
@@ -10,60 +11,27 @@ public class Game{
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
-        this.players.add(new Human());
+        this.players.add(new Computer());
         for (int i = 1; i<numberOfPlayers; i++) {
             this.players.add(new Computer());
         }
         distributeCardsToPlayers(this.players);
     }
 
-    void gamePlay() {
+    void gamePlay() throws InterruptedException {
         int activePlayer = 0;
         while(this.players.get(activePlayer).getDeckLen() != 24)
         activePlayer = processTurn(activePlayer);
 
     }
 
-    void assemblyStatMap(ArrayList<Pair<Card, Player>> cards, Map statMap){
-        // TODO: interface composing hash map
-    }
-
-    int processTurn(int activePlayer){
+    int processTurn(int activePlayer) throws InterruptedException {
         ArrayList<Pair<Card, Player>> cards = new ArrayList<>();
-
-        // TODO: interface composing hash map
-
-        Map<String, Supplier<Optional<Pair<Card, Player>>>> statMap = new HashMap<>();
-        statMap.put("Max speed", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getMaxSpeed())));
-        statMap.put("Acceleration", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getAcceleration())));
-        statMap.put("Horse power", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getHorsePower())));
-        statMap.put("Engine", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getEngine())));
-
-        // TODO: print sizes of player's decks method
-
-        for (int i=0; i < players.size(); i++) {
-            System.out.println("Player " + Integer.toString(i+1) + " deck size " + Integer.toString(players.get(i).getDeckLen()) + ".");
-        }
-
-        // TODO: separate players drawing cards into method
-
-        for (int i=0; i < players.size(); i++){
-            cards.add(new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
-        }
-
-        // TODO: active player action method ??
-
-        System.out.println("Active player has drawn: ");
-        System.out.println(cards.get(activePlayer).getValue0().returnTable());
-        String stat = players.get(activePlayer).chooseStat();
-
-        // TODO: other players reveal cards method
-
-        for (int i=0; i< players.size(); i++){
-            if (i != activePlayer) System.out.println(cards.get(i).getValue0().returnTable());
-        }
-
-        // choosing strongest card
+        Map<String, Supplier<Optional<Pair<Card, Player>>>> statMap = assemblyStatMap(cards);
+        printPlayersDeckSizes();
+        cards = cardsOnBoard(activePlayer, cards);
+        String stat = activePlayerChoice(activePlayer, cards);
+        otherPlayersRevealCards(activePlayer, cards);
 
         Optional<Pair<Card, Player>> winner = statMap.get(stat).get();
         try {
@@ -75,10 +43,50 @@ public class Game{
         }
 
         for (int i=0; i<players.size(); i++){
-            if (players.get(i).getDeckLen()==0) {players.remove(players.get(i));}
+            if (players.get(i).getDeckLen()==0) {
+                players.remove(players.get(i));
+                i--;
+                if (i < activePlayer) activePlayer--;
+            }
         }
 
         return activePlayer;
+    }
+
+    Map<String, Supplier<Optional<Pair<Card, Player>>>> assemblyStatMap(ArrayList<Pair<Card, Player>> cards){
+        Map<String, Supplier<Optional<Pair<Card, Player>>>> statMap = new HashMap<>();
+        statMap.put("Max speed", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getMaxSpeed())));
+        statMap.put("Acceleration", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getAcceleration())));
+        statMap.put("Horse power", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getHorsePower())));
+        statMap.put("Engine", () -> cards.stream().max(Comparator.comparing(s -> s.getValue0().getEngine())));
+        return statMap;
+    }
+
+    ArrayList<Pair<Card, Player>> cardsOnBoard(int activePlayer, ArrayList<Pair<Card, Player>> cards){
+        for (int i=0; i < players.size(); i++){
+            cards.add(new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
+        }
+        return cards;
+    }
+
+    String activePlayerChoice(int activePlayer, ArrayList<Pair<Card, Player>> cards ) throws InterruptedException {
+        System.out.println("Active (" + (activePlayer+1) + ") player has drawn: ");
+        System.out.println(cards.get(activePlayer).getValue0().returnTable());
+        String stat = players.get(activePlayer).chooseStat();
+        TimeUnit.MILLISECONDS.sleep(50);
+        return stat;
+    }
+
+    void otherPlayersRevealCards(int activePlayer, ArrayList<Pair<Card, Player>> cards) throws InterruptedException {
+        System.out.println("Other player's cards:");
+        for (int i = 0; i < players.size(); i++) {
+            if (i != activePlayer) System.out.println(cards.get(i).getValue0().returnTable());
+        }
+        TimeUnit.MILLISECONDS.sleep(50);
+    }
+
+    void printPlayersDeckSizes() {
+        for (int i = 0; i < players.size(); i++) System.out.println("Player " + Integer.toString(i + 1) + " deck size " + Integer.toString(players.get(i).getDeckLen()) + ".");
     }
 
     void distributeCardsToPlayers(ArrayList<Player> players){
