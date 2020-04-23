@@ -10,31 +10,48 @@ import java.util.function.Supplier;
 public class Game{
     private final ArrayList<Player> players;
 
-    Game(int numberOfPlayers){
+    Game(int numberOfHumanPlayers, int numberOfComputerPlayers){
         players = new ArrayList<Player>();
-        this.players.add(new Human("Player"));
-        for (int i = 1; i<numberOfPlayers; i++) {
-            this.players.add(new Computer("Computer " + i));
+        String playername;
+        for (int i = 1; i<numberOfHumanPlayers; i++){
+            playername = "Human " + i;
+            this.players.add(new Human(playername));
+        }
+        for (int i = 1; i<numberOfComputerPlayers; i++) {
+            playername = "Computer " + i;
+            this.players.add(new Computer(playername));
         }
         distributeCardsToPlayers(this.players);
     }
 
-    void gamePlay() throws InterruptedException {
+    void gamePlay(int latencyInMilliseconds) throws InterruptedException {
         int activePlayer = 0;
         while(this.players.get(activePlayer).getDeckLen() != 24) {
-            activePlayer = processTurn(activePlayer);
+            activePlayer = processTurn(activePlayer, latencyInMilliseconds);
             if (this.players.get(activePlayer).getDeckLen() == 24)
                 System.out.println(players.get(activePlayer).getName() + " WINS!");
         }
     }
 
-    int processTurn(int activePlayer) throws InterruptedException {
+    int emptyPlayerCleanup(int activePlayer){
+        for (int i=0; i<players.size(); i++){
+            if (players.get(i).getDeckLen()==0) {
+                players.remove(players.get(i));
+                i--;
+                if (i < activePlayer) activePlayer--;
+            }
+        }
+        return activePlayer;
+    }
+
+    int processTurn(int activePlayer, int latencyInMilliseconds) throws InterruptedException {
+        activePlayer = emptyPlayerCleanup(activePlayer);
         ArrayList<Pair<Card, Player>> cards = new ArrayList<>();
         Map<String, Supplier<Optional<Pair<Card, Player>>>> statMap = assemblyStatMap(cards);
         printPlayersDeckSizes();
         cards = cardsOnBoard(activePlayer, cards);
-        String stat = activePlayerChoice(activePlayer, cards);
-        otherPlayersRevealCards(activePlayer, cards);
+        String stat = activePlayerChoice(activePlayer, cards, latencyInMilliseconds);
+        otherPlayersRevealCards(activePlayer, cards, latencyInMilliseconds);
 
         Optional<Pair<Card, Player>> winner = statMap.get(stat).get();
         try {
@@ -45,15 +62,6 @@ public class Game{
         } catch (NoSuchElementException ignored){
 
         }
-
-        for (int i=0; i<players.size(); i++){
-            if (players.get(i).getDeckLen()==0) {
-                players.remove(players.get(i));
-                i--;
-                if (i < activePlayer) activePlayer--;
-            }
-        }
-
         return activePlayer;
     }
 
@@ -73,16 +81,16 @@ public class Game{
         return cards;
     }
 
-    String activePlayerChoice(int activePlayer, ArrayList<Pair<Card, Player>> cards) throws InterruptedException {
+    String activePlayerChoice(int activePlayer, ArrayList<Pair<Card, Player>> cards, int latencyInMilliseconds) throws InterruptedException {
         System.out.println(players.get(activePlayer).getName() + " has drawn: ");
         System.out.println(cards.get(activePlayer).getValue0().returnTable());
         String stat = players.get(activePlayer).chooseStat();
         System.out.println(players.get(activePlayer).getName() + " chose " + Chalk.on(stat).yellow().underline() + " to compare.\n");
-        TimeUnit.MILLISECONDS.sleep(150);
+        TimeUnit.MILLISECONDS.sleep(latencyInMilliseconds);
         return stat;
     }
 
-    void otherPlayersRevealCards(int activePlayer, ArrayList<Pair<Card, Player>> cards) throws InterruptedException {
+    void otherPlayersRevealCards(int activePlayer, ArrayList<Pair<Card, Player>> cards, int latencyInMiliseconds) throws InterruptedException {
         System.out.println("Other player's cards:");
         for (int i = 0; i < players.size(); i++) {
             if (i != activePlayer) {
@@ -90,7 +98,7 @@ public class Game{
                 System.out.println(cards.get(i).getValue0().returnTable());
             }
         }
-        TimeUnit.MILLISECONDS.sleep(150);
+        TimeUnit.MILLISECONDS.sleep(latencyInMiliseconds);
     }
 
     void printPlayersDeckSizes() {
