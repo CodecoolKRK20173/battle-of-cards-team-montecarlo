@@ -1,22 +1,22 @@
 package com.myapp.battleofcards;
 
 public enum Engine {
-    electric("electric"),
-    disel("disel"),
     trueHorse("true horse"),
-    TurboS("Turbo S"),
-    OHV("OHV"),
+    electric("electric"),
+    diesel("diesel"),
     AGT1500C("AGT-1500C"),
+    TSI("TSI"),
+    OHV("OHV"),
+    TCe("TCe"),
+    R4("R4"),
     WBX6("WBX6"),
+    Turbo("Turbo"),
+    TurboS("Turbo S"),
+    V6("V6"),
+    V8("V8"),
     V10("V10"),
     V12("V12"),
-    V8("V8"),
-    W12("W12"),
-    R4("R4"),
-    V6("V6"),
-    TSI("TSI"),
-    TCe("TCe"),
-    Turbo("Turbo");
+    W12("W12");
 
     private String engine;
 

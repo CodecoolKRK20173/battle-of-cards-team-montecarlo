@@ -12,7 +12,7 @@
         <maxSpeed>130</maxSpeed>
         <acceleration>19</acceleration>
         <horsePower>128</horsePower>
-        <engine>disel</engine>
+        <engine>diesel</engine>
     </card>
     <card>
         <name>Bryczka</name>

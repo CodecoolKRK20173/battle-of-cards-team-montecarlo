@@ -3,9 +3,9 @@ package com.myapp.battleofcards;
 public class Human extends Player {
     InputProvider inputProvider = new InputProvider();
 
-        Human (){
-            super();
-        }
+    Human (String name){
+        super(name);
+    }
 
     @Override
     public String chooseStat() {
@@ -14,10 +14,10 @@ public class Human extends Player {
             System.out.println("Choose one of following stats to compare with other players: \n" +
                                 "0: Max speed \n" +
                                 "1: Acceleration \n" +
-                                "2: Horse power \n " +
+                                "2: Horse power \n" +
                                 "3: Engine");
             while (input.length() == 0 || !("0123".contains(input))) {
-                input = inputProvider.getIntInput("How do you wanna play this round?");
+                input = inputProvider.getIntInput("Choose statistic to compare: ");
             }
             final String stats = statsOptions[Integer.parseInt(input)];
 
