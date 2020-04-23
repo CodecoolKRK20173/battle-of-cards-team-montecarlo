@@ -38,9 +38,7 @@ public class Game{
             activePlayer = cards.indexOf(winner.get());
             Player trueWinner = winner.get().getValue1();
             for (Pair<Card, Player> pair: cards){trueWinner.putAtBottom(pair.getValue0());};
-        } catch (NoSuchElementException E){
-
-        }
+        } catch (NoSuchElementException E){ }
 
         for (int i=0; i<players.size(); i++){
             if (players.get(i).getDeckLen()==0) {
@@ -49,7 +47,6 @@ public class Game{
                 if (i < activePlayer) activePlayer--;
             }
         }
-
         return activePlayer;
     }
 
@@ -102,6 +99,7 @@ public class Game{
             ((Player)playerIterator.next()).putAtBottom(currentCard);
         }
     }
+
     void showDecks(){
         // this is developers method
         for (Player player: players) {
