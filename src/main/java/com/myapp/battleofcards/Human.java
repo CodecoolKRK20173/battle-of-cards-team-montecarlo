@@ -17,7 +17,7 @@ public class Human extends Player {
                                 "2: Horse power \n" +
                                 "3: Engine");
             while (input.length() == 0 || !("0123".contains(input))) {
-                input = inputProvider.getIntInput("How do you wanna play this round?");
+                input = inputProvider.getIntInput("Choose statistic to compare: ");
             }
             final String stats = statsOptions[Integer.parseInt(input)];
 

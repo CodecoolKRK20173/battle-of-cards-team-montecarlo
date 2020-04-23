@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class Game{
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
@@ -40,8 +40,9 @@ public class Game{
         try {
             activePlayer = cards.indexOf(winner.get());
             Player trueWinner = winner.get().getValue1();
+            System.out.println(players.get(activePlayer).getName() + " takes cards!\n");
             for (Pair<Card, Player> pair: cards){trueWinner.putAtBottom(pair.getValue0());};
-        } catch (NoSuchElementException E){
+        } catch (NoSuchElementException ignored){
 
         }
 
@@ -66,8 +67,8 @@ public class Game{
     }
 
     ArrayList<Pair<Card, Player>> cardsOnBoard(int activePlayer, ArrayList<Pair<Card, Player>> cards){
-        for (int i=0; i < players.size(); i++){
-            cards.add(new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
+        for (Player player : players) {
+            cards.add(new Pair<Card, Player>(player.drawNext(), player));
         }
         return cards;
     }
