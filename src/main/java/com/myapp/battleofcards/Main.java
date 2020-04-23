@@ -20,22 +20,4 @@ public class Main {
         System.out.println("Deck generated, shuffled, players initialized, cards distributed equally.");
         game.gamePlay();
     }
-
-//    void menu(){
-//        InputProvider inputProvider = new InputProvider();
-//        int option;
-//        option = inputProvider.getIntInput("Enter a number to choose: ");
-//        System.out.println("");
-//        switch (option) {
-//            case 1:
-//                break;
-//            case 2:
-//                // High Score
-//                break;
-//            case 0:
-//                // exitProgram();
-//                break;
-//
-//        }
-//    }
 }
