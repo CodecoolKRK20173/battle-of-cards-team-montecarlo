@@ -5,7 +5,6 @@ import com.jakewharton.fliptables.FlipTable;
 
 public class Card {
     private String name;
-
     private EngineC engine;
     private HorsePower horsePower;
     private Acceleration acceleration;

@@ -4,9 +4,12 @@ import java.util.LinkedList;
 
 public abstract class Player{
     private LinkedList<Card> cards;
+    String name;
 
-    Player(){
-        cards = new LinkedList<Card>();}
+    Player(String name){
+        cards = new LinkedList<Card>();
+        this.name = name;
+    }
 
     void putAtBottom(Card card){
         this.cards.add(0, card);
@@ -21,4 +24,8 @@ public abstract class Player{
     }
 
     public abstract String chooseStat();
+
+    public String getName() {
+        return name;
+    }
 }

@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Game begins.");
-        int numberOfPlayers = 10;
+        int numberOfPlayers = 4;
         System.out.println("Number of players:" + numberOfPlayers);
         try {
             String path = new File(Deck.class.getProtectionDomain().getCodeSource().getLocation()

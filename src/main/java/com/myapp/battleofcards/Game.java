@@ -1,5 +1,6 @@
 package com.myapp.battleofcards;
 
+import com.github.tomaslanger.chalk.Chalk;
 import org.javatuples.Pair;
 
 import java.util.*;
@@ -11,9 +12,9 @@ public class Game{
 
     Game(int numberOfPlayers){
         players = new ArrayList<Player>();
-        this.players.add(new Computer());
+        this.players.add(new Human("Player"));
         for (int i = 1; i<numberOfPlayers; i++) {
-            this.players.add(new Computer());
+            this.players.add(new Computer("Computer " + i));
         }
         distributeCardsToPlayers(this.players);
     }
@@ -69,24 +70,30 @@ public class Game{
         return cards;
     }
 
-    String activePlayerChoice(int activePlayer, ArrayList<Pair<Card, Player>> cards ) throws InterruptedException {
-        System.out.println("Active (" + (activePlayer+1) + ") player has drawn: ");
+    String activePlayerChoice(int activePlayer, ArrayList<Pair<Card, Player>> cards) throws InterruptedException {
+        System.out.println(players.get(activePlayer).getName() + " has drawn: ");
         System.out.println(cards.get(activePlayer).getValue0().returnTable());
         String stat = players.get(activePlayer).chooseStat();
-        TimeUnit.MILLISECONDS.sleep(50);
+        System.out.println(players.get(activePlayer).getName() + " chose " + Chalk.on(stat).yellow().underline() + " to compare.\n");
+        TimeUnit.MILLISECONDS.sleep(150);
         return stat;
     }
 
     void otherPlayersRevealCards(int activePlayer, ArrayList<Pair<Card, Player>> cards) throws InterruptedException {
         System.out.println("Other player's cards:");
         for (int i = 0; i < players.size(); i++) {
-            if (i != activePlayer) System.out.println(cards.get(i).getValue0().returnTable());
+            if (i != activePlayer) {
+                System.out.println(players.get(i).getName() + " card: ");
+                System.out.println(cards.get(i).getValue0().returnTable());
+            }
         }
-        TimeUnit.MILLISECONDS.sleep(50);
+        TimeUnit.MILLISECONDS.sleep(150);
     }
 
     void printPlayersDeckSizes() {
-        for (int i = 0; i < players.size(); i++) System.out.println("Player " + Integer.toString(i + 1) + " deck size " + Integer.toString(players.get(i).getDeckLen()) + ".");
+        for (Player player: players)
+            System.out.println(player.getName() + " deck size is " + player.getDeckLen() + ".");
+        System.out.println();
     }
 
     void distributeCardsToPlayers(ArrayList<Player> players){
@@ -102,6 +109,7 @@ public class Game{
             ((Player)playerIterator.next()).putAtBottom(currentCard);
         }
     }
+
     void showDecks(){
         // this is developers method
         for (Player player: players) {
