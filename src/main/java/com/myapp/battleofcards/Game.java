@@ -29,21 +29,19 @@ public class Game{
 
     int processTurn(int activePlayer){
         Map<Integer, Pair<Card, Player>> cards = new HashMap<>();
-
         for (int i=0; i < players.size(); i++) {
-            System.out.println("Player " + Integer.toString(i+1) + "deck size " + Integer.toString(players.get(i).getDeckLen()));
+            System.out.println("Player " + Integer.toString(i+1) + " deck size " + Integer.toString(players.get(i).getDeckLen()) + ".");
         }
-
         for (int i=0; i < players.size(); i++){
             cards.put(cards.size(), new Pair<Card, Player>(players.get(i).drawNext(), players.get(i)));
         }
-
         System.out.println("Active player has drawn: ");
         System.out.println(cards.get(activePlayer).getValue0().returnTable());
         String stat = players.get(activePlayer).chooseStat();
 
-
-        // TODO: wystwietl karty innych graczy
+        for (int i=0; i< players.size(); i++){
+            if (i != activePlayer) System.out.println(cards.get(activePlayer).getValue0().returnTable());
+        }
 
         for (int i = 0; i< players.size(); i++){
 
