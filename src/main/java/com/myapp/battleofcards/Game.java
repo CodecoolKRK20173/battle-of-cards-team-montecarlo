@@ -13,12 +13,12 @@ public class Game{
     Game(int numberOfHumanPlayers, int numberOfComputerPlayers){
         players = new ArrayList<Player>();
         String playername;
-        for (int i = 1; i<numberOfHumanPlayers; i++){
-            playername = "Human " + i;
+        for (int i = 0; i<numberOfHumanPlayers; i++){
+            playername = "Human " + (i+1);
             this.players.add(new Human(playername));
         }
-        for (int i = 1; i<numberOfComputerPlayers; i++) {
-            playername = "Computer " + i;
+        for (int i = 0; i<numberOfComputerPlayers; i++) {
+            playername = "Computer " + (i+1);
             this.players.add(new Computer(playername));
         }
         distributeCardsToPlayers(this.players);

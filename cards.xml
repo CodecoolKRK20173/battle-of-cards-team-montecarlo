@@ -51,9 +51,9 @@
     </card>
     <card>
         <name>Lamborghini Gallardo</name>
-        <maxSpeed>325</maxSpeed>
+        <maxSpeed>320</maxSpeed>
         <acceleration>3.4</acceleration>
-        <horsePower>560</horsePower>
+        <horsePower>550</horsePower>
         <engine>V10</engine>
     </card>
     <card>
@@ -80,14 +80,14 @@
     <card>
         <name>Dodge Viper</name>
         <maxSpeed>325</maxSpeed>
-        <acceleration>3.9</acceleration>
+        <acceleration>4.1</acceleration>
         <horsePower>600</horsePower>
         <engine>V10</engine>
     </card>
     <card>
         <name>Ferrari California</name>
         <maxSpeed>310</maxSpeed>
-        <acceleration>3.9</acceleration>
+        <acceleration>3.5</acceleration>
         <horsePower>460</horsePower>
         <engine>V8</engine>
     </card>
@@ -102,13 +102,13 @@
         <name>Maserati Granturismo</name>
         <maxSpeed>300</maxSpeed>
         <acceleration>4.7</acceleration>
-        <horsePower>460</horsePower>
+        <horsePower>465</horsePower>
         <engine>V8</engine>
     </card>
     <card>
         <name>Mitsubishi Lancer Evo VIII</name>
         <maxSpeed>282</maxSpeed>
-        <acceleration>3.8</acceleration>
+        <acceleration>4.1</acceleration>
         <horsePower>410</horsePower>
         <engine>R4</engine>
     </card>
@@ -121,7 +121,7 @@
     </card>
     <card>
         <name>Volkswagen Scirocco</name>
-        <maxSpeed>250</maxSpeed>
+        <maxSpeed>245</maxSpeed>
         <acceleration>6.5</acceleration>
         <horsePower>280</horsePower>
         <engine>TSI</engine>
@@ -164,7 +164,7 @@
     <card>
         <name>Mitsubishi Endeavor</name>
         <maxSpeed>165</maxSpeed>
-        <acceleration>3.8</acceleration>
+        <acceleration>3.7</acceleration>
         <horsePower>225</horsePower>
         <engine>V6</engine>
     </card>
