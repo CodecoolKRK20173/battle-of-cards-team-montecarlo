@@ -41,7 +41,6 @@ public class Card {
                     String.valueOf(this.acceleration.getValue()),
                     String.valueOf(this.horsePower.getValue()),
                                     this.engine.getValue().name()}};
-
         return FlipTable.of(headers, data);
     }
 
